@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>HouseHunt</title>
+<!-- A home-screen shortcut for the HouseHunt dashboard: Streamlit Community Cloud always names and badges
+     shortcuts "Streamlit", so this page carries the name and icon and forwards straight to the app. -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="HouseHunt">
+<meta name="theme-color" content="#2e7d52">
+<style>
+  :root { color-scheme: light dark; --bg: #f6f7f5; --fg: #1f2a24; --accent: #2e7d52; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #151a17; --fg: #e8eee9; --accent: #5fbf8a; } }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--fg);
+         font: 17px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; padding: 0 16px; }
+  img { width: 96px; height: 96px; }
+  a { color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <img src="icon-192.png" alt="">
+  <p>Opening HouseHunt…</p>
+  <p><a id="go" href="https://ben-clare-house-hunt.streamlit.app/">Tap here if it doesn't open</a></p>
+</main>
+<script>
+  // Go straight to the dashboard - except on a normal visit with ?stay, which keeps this page open so it can be
+  // installed ("Install app" / "Add to Home Screen"). Launches from the home screen always go straight through.
+  var launched = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+  if (launched || !new URLSearchParams(location.search).has("stay")) location.replace(document.getElementById("go").href);
+</script>
+</body>
+</html>
